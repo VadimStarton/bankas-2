@@ -1,0 +1,22 @@
+[{ "name": "Jonas",
+   "surname": "Jonaitis",
+   "personCode": 123,
+   "idCode": 123,
+   "password": 123,
+   "accNumber": 558484854854,
+   "adress": "LT, Liepu str. 55",
+   "phoneNumber": 867000000,
+   "email": "jonas@jonaitis.com",
+   "$": 250 },
+   {"name": "Petras",
+   "surname": "Petrauskas",
+   "personCode": 1234,
+   "idCode": 1234,
+   "password": 1234,
+   "accNumber": 758484854857,
+   "adress": "LT, Liepu str. 57",
+   "phoneNumber": 867000001,
+   "email": "petras@petrauskas.com",
+   "$": 250
+   }
+]

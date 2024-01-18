@@ -1,0 +1,95 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../img/lightbr.jpg);
+    background-size: cover;
+    
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+
+}
+header a {
+    text-decoration: none;
+    color:rgb(15, 147, 255);
+    transition: all 0.35s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+a:hover {
+    text-decoration: underline;
+    color: red;
+    transition: all 0.35s;     
+}
+.btn1:hover {
+    text-decoration: underline;
+    color: rgb(15, 147, 255);
+    transition: all 0.35s; 
+    
+}
+.btn3:hover {
+    text-decoration: underline;
+    color: rgb(15, 147, 255);
+    transition: all 0.35s; 
+    
+}
+.btn2:hover {
+    text-decoration: underline;
+    color: red;
+    transition: all 0.35s;     
+}
+.btn4:hover {
+    text-decoration: underline;
+    color: red;
+    transition: all 0.35s;     
+}
+
+ul {
+    display: flex;
+    gap: 30px;
+}
+
+li {
+   list-style: none;
+}
+
+
+.input1, .input2, .input3, .input4,.input5,.input6, .input7, .input8, .input9 {
+    background-color: #ffffff;
+    width: 185px;
+    height: 23px;    
+    font-size: 35 px;
+    font-style: italic;
+    border-radius: 8px;
+    border-color: rgb(45, 22, 251);
+}
+.hero1, .hero2 {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    color: black;
+}
+
+p {
+    color:rgb(45, 22, 251);
+}
+.btn1, .btn2, .btn3, .btn4 {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    justify-content: space-around;
+    padding: 8px 15px; 
+    cursor: pointer;
+     
+}
+.footer {
+    display:flex;
+    align-items: center;
+}
