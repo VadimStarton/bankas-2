@@ -82,7 +82,7 @@ p {
     color:rgb(45, 22, 251);
 }
 .btn1, .btn2, .btn3, .btn4 {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     border-radius: 5px;
     color: rgb(0, 0, 0);
