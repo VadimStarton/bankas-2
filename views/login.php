@@ -15,7 +15,7 @@
 
             <button class="btn1" type="reset">Cancel</button>
             <button class="btn2" type="submit">Log in</button><br>
-            <p>Are you don't have registration? <br><a href="./createacc.php">Createacc</a></p>
+            <p>Are you don't have registration? <br><style> a{color: blackgrey}</style><a href="./createacc.php">Create accaunt</a></p>
         </form>
     </section>
     
