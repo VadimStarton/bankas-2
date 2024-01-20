@@ -1,3 +1,17 @@
-{    "autoload": 
-{        "psr-4": {"class\\": "src/"}   
-}}
+{
+    "name": "v/bank",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\DB\\":"App/DB/",
+            "Bank\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "require": {}
+}
