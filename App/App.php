@@ -10,7 +10,7 @@ class App{
     public static function run()
     {
         $server = $_SERVER['REQUEST_URI'];
-        $server = preg_replace('/\?.*$/', '', $server);
+        $server = str_replace('testbank/Bank/public', '', $server);
         $url = explode('/', $server); //splitina stringa per /, arr[0] niekas, arr[1 ir kiti] jau reiksmes po /
         // print_r($url);
         array_shift($url); //kadangi visada pirmasis yra tuscias, ji pasalinam, toliau dirbam su arr.

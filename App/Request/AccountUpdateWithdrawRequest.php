@@ -1,18 +1,21 @@
 <?php
 
 namespace Bank\App\Request;
+
 use Bank\App\Message;
 
-class AccountUpdateRequest
+class AccountUpdateWithdrawRequest
 {
-    public static function validate($request)
+    public static function validate($request, $userData)
     {
-        $addmoney = $request['addMoney'] ?? null;
+        $withdrawMoney = $request['withdraw'] ?? null;
 
-        if (!is_numeric($addmoney)) {
+        if (!is_numeric($withdrawMoney)) {
             Message::get()->set('danger', "Input must be a number.");
-        } elseif ($addmoney <= 0) {
+        } elseif ($withdrawMoney <= 0) {
             Message::get()->set('danger', "Input must be more than 0.");
+        } elseif ($withdrawMoney >  $userData->balance) {
+            Message::get()->set('danger', "The maximum debit amount is $userData->balance €.");
         }
         if (Message::get()->hasErrors()) {
             return false;
