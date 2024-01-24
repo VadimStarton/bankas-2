@@ -1,29 +1,31 @@
 <?php
 
 namespace Bank\App;
+
 use Bank\App\Controllers\HomeController;
 use Bank\App\Controllers\AddAccountController;
 use Bank\App\Controllers\LoginController;
 
-class App{
+class App
+{
 
     public static function run()
     {
         $server = $_SERVER['REQUEST_URI'];
-        $server = str_replace('testbank/Bank/public', '', $server);
+        $server = str_replace('/testbank/Bank/public/', '', $server);
+        //$server = preg_replace('/\?.*$/', '', $server);
         $url = explode('/', $server); //splitina stringa per /, arr[0] niekas, arr[1 ir kiti] jau reiksmes po /
         // print_r($url);
         array_shift($url); //kadangi visada pirmasis yra tuscias, ji pasalinam, toliau dirbam su arr.
         return self::router($url);
-        
     }
 
     private static function router($url)
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        
+
         if ($method == 'GET' && count($url) == 1 && $url[0] == '') {
-            
+
             return (new HomeController)->index();
         }
         if ('GET' == $method && count($url) == 1 && $url[0] == 'login') {
@@ -45,7 +47,7 @@ class App{
         }
 
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'addAccount' && $url[1] == 'create') {
-            
+
             return (new AddAccountController)->create();
         }
         if ('POST' == $method && count($url) == 2 && $url[0] == 'addAccount' && $url[1] == 'store') {
@@ -53,11 +55,11 @@ class App{
         }
 
         if ('GET' == $method && count($url) == 3 && $url[0] == 'addAccount' && $url[1] == 'confirmDelete') {
-            return (new AddAccountController)->confirmDelete($url[2]); 
+            return (new AddAccountController)->confirmDelete($url[2]);
         }
 
         if ('POST' == $method && count($url) == 3 && $url[0] == 'addAccount' && $url[1] == 'destroy') {
-            return (new AddAccountController)->destroy($url[2], $_POST); 
+            return (new AddAccountController)->destroy($url[2], $_POST);
         }
 
         if ('GET' == $method && count($url) == 3 && $url[0] == 'addAccount' && $url[1] == 'edit') {
@@ -69,23 +71,24 @@ class App{
         if ('GET' == $method && count($url) == 3 && $url[0] == 'addAccount' && $url[1] == 'withdraw') {
             return (new AddAccountController)->withdraw($url[2]);
         }
-        if ('POST' == $method && count($url) == 3 && $url[0] == 'addAccount' && $url[1] == 'updateWithdraw') {
-            return (new AddAccountController)->updateWithdraw($url[2], $_POST);
+        if ('POST' == $method && count($url) == 3 && $url[0] == 'addAccount' && $url[1] == 'update') {
+            return (new AddAccountController)->update($url[2], $_POST);
         }
- 
-        return '<h1>404</h1>';
+
+        return "<h1> 404 Page Not Found </h1>";
     }
 
 
     public static function view($view, $data = [])
     {
         extract($data);
-        
-       $msg = Message::get()->show();
-       $auth = Auth::get()->getStatus();
-    
-       ob_start();
+
+        $msg = Message::get()->show();
+        $auth = Auth::get()->getStatus();
+
+        ob_start();
         require ROOT . 'views/top.php';
+        // require ROOT . 'views/nav.php';
         require ROOT . "views/$view.php";
         require ROOT . 'views/bottom.php';
         $content = ob_get_clean();
@@ -93,7 +96,7 @@ class App{
     }
     public static function redirect($url)
     {
-        header('Location: '.URL.'/'.$url);
+        header('Location: ' . URL . '/' . $url);
         return null;
     }
 }

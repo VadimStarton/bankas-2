@@ -7,11 +7,22 @@ class AccountUpdateRequest
 {
     public static function validate($request)
     {
-        $addmoney = $request['addMoney'] ?? null;
 
-        if (!is_numeric($addmoney)) {
+        $addMoney = $request['addMoney'] ?? null;
+        $remMoney = $request['withdraw'] ?? null;
+
+        if ($addMoney !== null){
+            $money = $addMoney;
+        } elseif ($remMoney !== null){
+            $money = $remMoney;
+        } else {
+            $money = null;
+        }
+        // $addmoney = $request['addMoney'] ?? null;
+
+        if (!is_numeric($money)) {
             Message::get()->set('danger', "Input must be a number.");
-        } elseif ($addmoney <= 0) {
+        } elseif ($money <= 0) {
             Message::get()->set('danger', "Input must be more than 0.");
         }
         if (Message::get()->hasErrors()) {

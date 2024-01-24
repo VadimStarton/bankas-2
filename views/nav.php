@@ -3,7 +3,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <a class="navbar-brand" href="<?= URL ?>" style="font-family:fantasy; font-size:30px; margin-left: 50px;margin-right: 50px;"> Future Bank <i style="color:#ffda6a;" class="fa-solid fa-sack-dollar"></i></a>
+                <a class="navbar-brand" href="<?= URL ?>" style="font-family:fantasy; font-size:30px; margin-left: 50px;margin-right: 50px;"> VaBank <i style="color:#ffda6a;" class="fas fa-coins"></i></a>
              
                 <?php if ($auth) : ?>
                     <li class="nav-item">

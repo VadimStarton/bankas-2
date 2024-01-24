@@ -1,4 +1,4 @@
-<?php require ROOT . '../views/nav.php'?>
+<?php  require ROOT . '/views/nav.php'?>
 
 <div class="container mt-5">
     <div class="row">

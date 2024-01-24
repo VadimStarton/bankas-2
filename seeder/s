@@ -5,12 +5,12 @@ echo "seeder started\n";
 $users = [
    (object) [
         'name' => 'Admin',
-        'email' => 'admin@gmail.com',
+        'email' => 'admin@admin.com',
         'password' => sha1('123'),
     ],
     (object) [
-        'name' => 'Adam',
-        'email' => 'adam@gmail.com',
+        'name' => 'Aras',
+        'email' => 'aras@gmail.com',
         'password' => sha1('123'),
     ]
 ];

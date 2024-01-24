@@ -2,7 +2,8 @@
 
 namespace App\DB;
 
-//use App\DB\DataBase;
+use Exception;
+
 
 class FileBase implements DataBase
 {
@@ -30,7 +31,7 @@ class FileBase implements DataBase
         }
     }   
 
-    public function create(object $data) : int //situos data gaunam is creato
+    public function create(object $data) : int //situos data gaunam is creat.php
     {
         $this->save = true;
         
@@ -40,7 +41,6 @@ class FileBase implements DataBase
         $this->data[] = $data; //ir viska ipaiso i duomenis
         return $id; //grazina naujai sukurto id, jo nenaudojam, bet gaunam, OK.
     }
-
 
     public function update(int $id, object $userData) : bool
     {
@@ -72,13 +72,14 @@ class FileBase implements DataBase
     public function show(int $id) : object 
     {
        
-        $this->save = false; //jei tik show, seivint nereikia, pazymim kad false
+        $this->save = false; //jei tik show, savint nreikia, pazymim kad false
         foreach ($this->data as $key => $value) {
             if ($value->id == $id) {
                 return $value;
             }
         }
-        return null;
+        throw new Exception("No user found with this $id ID. ");
+    
     }
     
     public function showAll() : array
@@ -86,8 +87,4 @@ class FileBase implements DataBase
         $this->save = false;
         return $this->data; //grazina pries tai konstruktoriuje nuskaitytus duomenis, visa masyva
     }
-
-
-    
-
 }
